@@ -1,0 +1,18 @@
+spring:
+  jpa:
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+
+security:
+  oauth2:
+    resource:
+      userInfoUri: localhost:8901/user
+
+server:
+  port: 8901
+
+# gerador de password: https://www.grc.com/passwords.htm
+signing:
+  key: ipg3d4at5bW1zJ4i0UW8X8W59d51EiOE5Sa8X8o4ZKCCp0MU88KfalEEDfQfZHb
