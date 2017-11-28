@@ -1,8 +1,15 @@
 package br.com.dionatanribeiro.pocauthenticationserver.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class UsuarioRole {
 
     @Id
@@ -16,35 +23,9 @@ public class UsuarioRole {
     @ManyToOne(fetch = FetchType.EAGER)
     private Role role;
 
-    public UsuarioRole() {
-    }
-
     public UsuarioRole(Usuario usuario, Role role) {
         this.usuario = usuario;
         this.role = role;
     }
 
-    public Long getIdUsuarioRole() {
-        return idUsuarioRole;
-    }
-
-    public void setIdUsuarioRole(Long idUsuarioRole) {
-        this.idUsuarioRole = idUsuarioRole;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
 }

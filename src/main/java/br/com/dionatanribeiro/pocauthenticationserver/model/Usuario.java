@@ -2,6 +2,7 @@ package br.com.dionatanribeiro.pocauthenticationserver.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -13,6 +14,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Entity
+@Data
 public class Usuario implements UserDetails {
 
     @Id
@@ -63,67 +65,4 @@ public class Usuario implements UserDetails {
                 .collect(Collectors.toSet());
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getPrimeiroNome() {
-        return primeiroNome;
-    }
-
-    public void setPrimeiroNome(String primeiroNome) {
-        this.primeiroNome = primeiroNome;
-    }
-
-    public String getUltimoNome() {
-        return ultimoNome;
-    }
-
-    public void setUltimoNome(String ultimoNome) {
-        this.ultimoNome = ultimoNome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Date getDtCadastro() {
-        return dtCadastro;
-    }
-
-    public void setDtCadastro(Date dtCadastro) {
-        this.dtCadastro = dtCadastro;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Set<UsuarioRole> getUsuarioRoles() {
-        return usuarioRoles;
-    }
-
-    public void setUsuarioRoles(Set<UsuarioRole> usuarioRoles) {
-        this.usuarioRoles = usuarioRoles;
-    }
 }
