@@ -8,7 +8,7 @@ spring:
 security:
   oauth2:
     resource:
-      userInfoUri: localhost:8901/user
+      user-info-uri: localhost:8901/user
 
 server:
   port: 8901

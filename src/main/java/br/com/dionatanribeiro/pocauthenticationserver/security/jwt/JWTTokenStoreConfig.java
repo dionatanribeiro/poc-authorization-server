@@ -1,4 +1,4 @@
-package br.com.dionatanribeiro.pocauthenticationserver.security;
+package br.com.dionatanribeiro.pocauthenticationserver.security.jwt;
 
 import br.com.dionatanribeiro.pocauthenticationserver.config.ServiceConfig;
 import org.springframework.beans.factory.annotation.Autowired;
