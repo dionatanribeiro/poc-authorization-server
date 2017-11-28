@@ -26,7 +26,7 @@ public class Usuario implements UserDetails {
     private String email;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private Date joinDate;
+    private Date dtCadastro;
 
     private String username;
 
@@ -95,12 +95,12 @@ public class Usuario implements UserDetails {
         this.email = email;
     }
 
-    public Date getJoinDate() {
-        return joinDate;
+    public Date getDtCadastro() {
+        return dtCadastro;
     }
 
-    public void setJoinDate(Date joinDate) {
-        this.joinDate = joinDate;
+    public void setDtCadastro(Date dtCadastro) {
+        this.dtCadastro = dtCadastro;
     }
 
     public String getUsername() {

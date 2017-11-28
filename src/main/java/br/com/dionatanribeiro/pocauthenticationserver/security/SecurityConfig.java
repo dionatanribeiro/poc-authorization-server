@@ -8,7 +8,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -18,10 +17,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserSecurityService userSecurityService;
-
-    private BCryptPasswordEncoder passwordEncoder() {
-        return SecurityUtility.passwordEncoder();
-    }
 
     @Bean
     @Override
@@ -33,9 +28,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
             .userDetailsService(userSecurityService)
-            .passwordEncoder(passwordEncoder());
+            .passwordEncoder(SecurityUtility.passwordEncoder());
     }
 
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
             .headers().frameOptions().disable()

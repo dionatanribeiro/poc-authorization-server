@@ -7,7 +7,7 @@ public class UsuarioRole {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long usuarioRoleId;
+    private Long idUsuarioRole;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "usuario_id")
@@ -24,12 +24,12 @@ public class UsuarioRole {
         this.role = role;
     }
 
-    public Long getUsuarioRoleId() {
-        return usuarioRoleId;
+    public Long getIdUsuarioRole() {
+        return idUsuarioRole;
     }
 
-    public void setUsuarioRoleId(Long usuarioRoleId) {
-        this.usuarioRoleId = usuarioRoleId;
+    public void setIdUsuarioRole(Long idUsuarioRole) {
+        this.idUsuarioRole = idUsuarioRole;
     }
 
     public Usuario getUsuario() {

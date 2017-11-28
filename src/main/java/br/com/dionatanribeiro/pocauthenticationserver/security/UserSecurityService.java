@@ -27,11 +27,6 @@ public class UserSecurityService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Usuario usuario = repository.findByUsername(username);
 
-        // remover mock
-        if (usuario == null) {
-            usuario = mockUser(username);
-        }
-
         if (null == usuario) {
             logger.warn("Username {} não encontrado", username);
             throw new UsernameNotFoundException("Username " + username + " não encontrado");
@@ -39,27 +34,5 @@ public class UserSecurityService implements UserDetailsService {
 
         return usuario;
     }
-
-    private Usuario mockUser(String username) {
-        Usuario usuario = new Usuario();
-        usuario.setPrimeiroNome("Dionatan");
-        usuario.setUltimoNome("Ribeiro");
-        usuario.setUsername(username);
-        usuario.setPassword(new BCryptPasswordEncoder().encode("password"));
-
-        Role role = new Role();
-        if ("dionatan".equals(username)) {
-            role.setName("ROLE_ADMIN");
-        } else {
-            role.setName("ROLE_USER");
-        }
-
-        HashSet<UsuarioRole> usuarioRoles = new HashSet<>();
-        usuarioRoles.add(new UsuarioRole(usuario, role));
-        usuario.setUsuarioRoles(usuarioRoles);
-
-        return usuario;
-    }
-
 
 }

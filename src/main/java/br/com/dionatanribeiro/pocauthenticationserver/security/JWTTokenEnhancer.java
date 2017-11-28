@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class JWTTokenEnhancer implements TokenEnhancer {
+
     @Override
     public OAuth2AccessToken enhance(OAuth2AccessToken oAuth2AccessToken, OAuth2Authentication oAuth2Authentication) {
         Map<String, Object> additionalInfo = new HashMap<>();
@@ -18,4 +19,5 @@ public class JWTTokenEnhancer implements TokenEnhancer {
 
         return oAuth2AccessToken;
     }
+
 }

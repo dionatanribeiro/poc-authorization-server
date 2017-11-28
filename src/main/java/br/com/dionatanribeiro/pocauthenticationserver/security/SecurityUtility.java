@@ -17,21 +17,4 @@ public class SecurityUtility {
         return new BCryptPasswordEncoder(12, new SecureRandom(SALT.getBytes()));
     }
 
-    @Bean
-    public static String randomPassword() {
-
-        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-        StringBuilder salt = new StringBuilder();
-        Random random = new Random();
-
-        while (salt.length() < 18) {
-            int index = (int) (random.nextFloat() * SALTCHARS.length());
-            salt.append(SALTCHARS.charAt(index));
-        }
-
-        String saltStr = salt.toString();
-
-        return saltStr;
-    }
-
 }
