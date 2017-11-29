@@ -1,7 +1,6 @@
 package br.com.dionatanribeiro.pocauthenticationserver.security.jwt;
 
-import br.com.dionatanribeiro.pocauthenticationserver.config.ServiceConfig;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -14,8 +13,8 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 @Configuration
 public class JWTTokenStoreConfig {
 
-    @Autowired
-    private ServiceConfig serviceConfig;
+    @Value("${signing.key}")
+    private String jwtSigningKey;
 
     @Bean
     @Primary
@@ -35,7 +34,7 @@ public class JWTTokenStoreConfig {
     @Bean
     public JwtAccessTokenConverter jwtAccesTokenConverter() {
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-        converter.setSigningKey(serviceConfig.getJwtSigningKey());
+        converter.setSigningKey(jwtSigningKey);
         return converter;
     }
 
