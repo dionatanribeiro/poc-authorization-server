@@ -11,7 +11,8 @@ spring:
 security:
   oauth2:
     resource:
-      userInfoUri: localhost:8901/user
+      userInfoUri: http://localhost:8901/user
+      preferTokenInfo: false
 
 # gerador de password: https://www.grc.com/passwords.htm
 signing:
